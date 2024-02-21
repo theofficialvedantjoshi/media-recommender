@@ -48,7 +48,7 @@ def get_info(name):
         data = response.json()
         return data
     else:
-        url = "https://www.themoviedb.org/search?query=breaking bad"
+        url = "https://www.themoviedb.org/search?query={}".format(name.lower())
         headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
             }
