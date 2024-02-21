@@ -30,14 +30,9 @@ def recommend():
         print(recs)
         for i in recs:
             try:
-                df = pd.read_csv('all_titles.csv')
-                if df[df.title == i].type.values[0] == 'Movie':
-                    img_url = 'https://image.tmdb.org/t/p/original'
-                    data = imdb.get_info(i)
-                    images.append(img_url+data['poster_path'])
-                else:
-                    data = imdb.get_info(i)
-                    images.append(data['Poster'])
+                img_url = 'https://image.tmdb.org/t/p/original'
+                data = imdb.get_info(i)
+                images.append(img_url+data['poster_path'])
             except:
                 images.append("https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_SX300.jpg")
             names.append(i)
