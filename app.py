@@ -19,28 +19,28 @@ def index():
 def recommend():
     if request.method == 'POST':
         user_input = request.form['user_input']
-        images= ['https://image.tmdb.org/t/p/original/wigZBAmNrIhxp2FNGOROUAeHvdh.jpg']*10
-        names =['Black Mirror','You','The Witcher','The Crown','The Queen\'s Gambit','Black Mirror','You','The Witcher','The Crown','The Queen\'s Gambit']
-        # try:
-        #     recs = nf.recommend(user_input)
-        # except:
-        #     images_temp=["https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_SX300.jpg"
-        #         ,"https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
-        #         ,"https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg"
-        #         ,"https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_SX300.jpg"
-        # ]
-        #     return render_template('error.html')
-        # images=[]
-        # names =[]
-        # print(recs)
-        # for i in recs:
-        #     try:
-        #         img_url = 'https://image.tmdb.org/t/p/original'
-        #         data = imdb.get_info(i)
-        #         images.append(img_url+data['poster_path'])
-        #     except:
-        #         images.append("https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_SX300.jpg")
-        #     names.append(i)
+        # images= ['https://image.tmdb.org/t/p/original/wigZBAmNrIhxp2FNGOROUAeHvdh.jpg']*10
+        # names =['Black Mirror','You','The Witcher','The Crown','The Queen\'s Gambit','Black Mirror','You','The Witcher','The Crown','The Queen\'s Gambit']
+        try:
+            recs = nf.recommend(user_input)
+        except:
+            return render_template('error.html')
+        images=[]
+        names =[]
+        print(recs)
+        for i in recs:
+            try:
+                df = pd.read_csv('all_titles.csv')
+                if df[df.title == i].type.values[0] == 'Movie':
+                    img_url = 'https://image.tmdb.org/t/p/original'
+                    data = imdb.get_info(i)
+                    images.append(img_url+data['poster_path'])
+                else:
+                    data = imdb.get_info(i)
+                    images.append(data['Poster'])
+            except:
+                images.append("https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_SX300.jpg")
+            names.append(i)
         return render_template('recs.html', user_input=user_input,images=images,names=names)
     else:
         images_temp=["https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_SX300.jpg"

@@ -39,8 +39,6 @@ h1{
     height: 45vh;
     animation: fadeIn 3s;
     border-bottom: none;
-    /*remove bottom border*/
-    box-shadow: 0 0 20px 0 rgb(255, 255, 255, 0.2);
     /* hover effect */
     transition : transform 0.5s;
     cursor: pointer;
