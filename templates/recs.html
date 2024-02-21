@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='recs.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Poppins:ital,wght@1,100&family=Sora:wght@100..800&family=Tektur&display=swap" rel="stylesheet">
+    <title>Recos</title>
+</head>
+<body>
+    {% if user_input %}
+    <h1>YOUR RECOMMENDATIONS</h1>
+        <div class="image-container1">
+
+        {% for i in range(5)%}
+        <div class="image">
+            <a href="{{ url_for('info', name=names[i]) }}"><img src="{{images[i]}}"></a>
+        </div>
+        {% endfor %}
+    </div> 
+    <div class="image-container2">
+
+        {% for i in range(5,10) %}
+        <div class="image">
+            
+            <a href="{{ url_for('info', name=names[i]) }}"><img src="{{images[i]}}"></a>
+        </div>
+        {% endfor %}
+    </div> 
+    {% endif %}
+    {% if not user_input %}
+        <p>Invalid Movie</p>
+        <h1>Movie</h1>
+        <form method="post" action="/rec">
+            <label for="user_input">Enter Text:</label>
+            <input type="text" id="user_input" name="user_input" required>
+            <button type="submit" >Submit</button>
+        </form>
+    {% endif %}
+</body>
+</html>
+
+
+

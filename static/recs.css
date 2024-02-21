@@ -1,0 +1,67 @@
+.sora-font {
+    font-family: "Sora", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+  }
+
+body{
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+h1{
+    font-family: 'Sora', sans-serif;
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    margin-top: 2rem;
+
+}
+.image-container1{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 100px;
+}
+.image-container2{
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.image{
+    width : 30vh;
+    height: 45vh;
+    animation: fadeIn 3s;
+    border-bottom: none;
+    /*remove bottom border*/
+    box-shadow: 0 0 20px 0 rgb(255, 255, 255, 0.2);
+    /* hover effect */
+    transition : transform 0.5s;
+    cursor: pointer;
+
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.image:hover{
+    transform: scale(1.1);
+}
+.image.show{
+    opacity: 1;
+}
+img{
+    width : 30vh;
+    height: 45vh;
+}
+

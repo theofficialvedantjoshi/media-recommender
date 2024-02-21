@@ -1,0 +1,31 @@
+body{
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+
+}
+.sora-font {
+    font-family: "Sora", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100px;
+    font-style: normal;
+  }
+.info-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-bottom: 100px;
+}
+.info-text{
+    width:1000px;
+    font-family: 'Sora', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    text-align: left;
+    margin-top: -2rem;
+    padding: 0 2rem;
+}
+p{
+    width:inherit;
+}

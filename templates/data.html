@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="table-container">
+    {% for table in tables %}
+        {{titles[loop.index]}}
+        {{table|safe}}
+    {% endfor %}
+</div>
+{% endblock %}

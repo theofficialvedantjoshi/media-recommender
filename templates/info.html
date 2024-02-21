@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Poppins:ital,wght@1,100&family=Sora:wght@100..800&family=Tektur&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='info.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>{{n}}</h1>
+    <p>Year {{y}}</p>
+    <p>Rated {{r}}</p>
+    <p>Genre {{g}}</p>
+    <p>{{w}}</p>
+    <p>{{a}}</p>
+    <p>{{p}}</p>
+    <p>{{ra}}</p>
+    <p>{{s}}</p> -->
+    <div class="info-page">
+        <div class="image">
+    <!-- <img src="https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_SX300.jpg"> -->
+    <img src="{{po}}">
+</div>
+<div class="info-text">
+    <!-- <h1>Black Mirror</h1>
+    <p>Year- 2011–2019</p>
+    <p>Rated- TV-MA</p>
+    <p>Genre- Drama, Sci-Fi, Thriller</p>
+    <p>A television anthology series that shows the dark side of life and technology.aaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </p>
+    <p>Written By- Charlie Brooker</p>
+    <p>Stars- Daniel Lapaine, Hannah John-Kamen, Michaela Coel</p>
+    <p>IMDB Rating- 8.8</p> -->
+    <h1>{{n}}</h1>
+    <p>Year- {{y}}</p>
+    <p>Rated- {{r}}</p>
+    <p>Genre- {{g}}</p>
+    <p>{{p}}</p>
+    <p>{{w}}</p>
+    <p>{{a}}</p>
+    <p>IMDB Rating- {{ra}}</p>
+</div>
+        
+</div>
+
+    
+</body>
+</html>
