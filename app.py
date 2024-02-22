@@ -16,9 +16,6 @@ df.reset_index()
 @app.route('/', methods=['GET', 'POST'])
 def home():
     return render_template('index.html')
-@app.route('/data')
-def index():
-    return render_template('data.html', tables=[df.to_html(classes='data')], titles=df.columns.values)
 @app.route('/rec', methods=['GET', 'POST'])
 def recommend():
     if request.method == 'POST':
