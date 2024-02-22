@@ -4,6 +4,10 @@ import requests,json
 import data as nf
 import time
 import imdb 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+omdb_key = os.getenv('OMDB_KEY')
 app = Flask(__name__)
 df = pd.read_csv('netflix_titles.csv')
 df.drop('director', axis=1, inplace=True)
@@ -46,7 +50,7 @@ def recommend():
         return render_template('main.html',images=images_temp)
 @app.route('/info<name>')
 def info(name):
-    url = "http://www.omdbapi.com/?apikey=e64b4ef4&t={}".format(name) 
+    url = "http://www.omdbapi.com/?apikey={}&t={}".format(omdb_key,name)
     response = requests.get(url)
     data = response.json()
     year = data['Year']
