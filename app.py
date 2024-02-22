@@ -50,25 +50,24 @@ def recommend():
         return render_template('main.html',images=images_temp)
 @app.route('/info/<name>')
 def info(name):
-    url = "http://www.omdbapi.com/?apikey={}&t={}".format(omdb_key,name)
-    response = requests.get(url)
-    data = response.json()
-    year = data['Year']
-    rated = data['Rated']
-    genre = data['Genre']
-    writer = data['Writer']
-    actor = data['Actors']
-    plot = data['Plot']
-    rating = data['imdbRating']
-    link = "https://www.imdb.com/title/{}".format(data['imdbID'])
     try:
-        seasons = data['totalSeasons']
+        url = "http://www.omdbapi.com/?apikey={}&t={}".format(omdb_key,name)
+        response = requests.get(url)
+        data = response.json()
+        year = data['Year']
+        rated = data['Rated']
+        genre = data['Genre']
+        writer = data['Writer']
+        actor = data['Actors']
+        plot = data['Plot']
+        rating = data['imdbRating']
+        link = "https://www.imdb.com/title/{}".format(data['imdbID'])
+        poster = data['Poster']
     except:
-        seasons = 'N/A'
-    poster = data['Poster']
+        return render_template('error.html')
     #n=name,y=year,r=rated,g=genre,w=writer,a=actor,p=plot,ra=rating,s=seasons,po=poster
     
-    return render_template('info.html',n=name,y=year,r=rated,g=genre,w=writer,a=actor,p=plot,ra=rating,s=seasons,po=poster,link=link)
+    return render_template('info.html',n=name,y=year,r=rated,g=genre,w=writer,a=actor,p=plot,ra=rating,po=poster,link=link)
 
 if __name__ == '__main__':
     app.run(host="localhost",port=8080,debug=True)
