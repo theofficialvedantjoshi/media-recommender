@@ -83,3 +83,12 @@ img{
     width : 30vh;
     height: 45vh;
 }
+#sign{
+    /*bottom right of screen*/
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    color: white;
+    font-size: 1rem;
+    margin: 10px;
+  }
