@@ -6,6 +6,9 @@ import time
 import imdb 
 from dotenv import load_dotenv
 import os
+
+
+
 load_dotenv()
 omdb_key = os.getenv('OMDB_KEY')
 app = Flask(__name__)
