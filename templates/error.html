@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='error.css') }}">
+    <title>Error - Not Found</title>
 </head>
 <body>
-    <h1>Not found in database</h1>
-    <a href="/rec">Go back</a>
+    <h1>Not Found in Database</h1>
+    <p>Search for a different title.</p>
+    <a href="/rec">Go Back</a>
 </body>
 </html>
