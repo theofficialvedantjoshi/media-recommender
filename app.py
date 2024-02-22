@@ -48,7 +48,7 @@ def recommend():
                 ,"https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_SX300.jpg"
         ]
         return render_template('main.html',images=images_temp)
-@app.route('/info<name>')
+@app.route('/info/<name>')
 def info(name):
     url = "http://www.omdbapi.com/?apikey={}&t={}".format(omdb_key,name)
     response = requests.get(url)
