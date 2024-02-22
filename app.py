@@ -60,6 +60,7 @@ def info(name):
     actor = data['Actors']
     plot = data['Plot']
     rating = data['imdbRating']
+    link = "https://www.imdb.com/title/{}".format(data['imdbID'])
     try:
         seasons = data['totalSeasons']
     except:
@@ -67,7 +68,7 @@ def info(name):
     poster = data['Poster']
     #n=name,y=year,r=rated,g=genre,w=writer,a=actor,p=plot,ra=rating,s=seasons,po=poster
     
-    return render_template('info.html',n=name,y=year,r=rated,g=genre,w=writer,a=actor,p=plot,ra=rating,s=seasons,po=poster)
+    return render_template('info.html',n=name,y=year,r=rated,g=genre,w=writer,a=actor,p=plot,ra=rating,s=seasons,po=poster,link=link)
 
 if __name__ == '__main__':
     app.run(host="localhost",port=8080,debug=True)
