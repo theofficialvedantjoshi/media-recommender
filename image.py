@@ -6,4 +6,4 @@ def get_image(title):
     font = ImageFont.truetype('arial.ttf', 40)
     draw.text((50, 225), title, font=font)
     img.save('image_cache/{}.png'.format(title))
-    return 'image_cache/{}.png'.format(title)
+    return 'image_cache/{}.png'.format(title) 
