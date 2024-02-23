@@ -7,5 +7,3 @@ def get_image(title):
     draw.text((50, 225), title, font=font)
     img.save('image_cache/{}.png'.format(title))
     return 'image_cache/{}.png'.format(title)
-
-get_image('Black Mirror')

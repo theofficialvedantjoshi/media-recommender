@@ -19,9 +19,9 @@
         </form>
     </div>
     <div class="images">
-        {% for image in images %}
+        {% for i in range(4) %}
         <div class="image">
-            <img src="{{image}}">
+            <a href="info/{{names[i]}}"><img src="{{images[i]}}"></a>
     </div>
     {% endfor %}
     <p id="sign">Made with 💗 by Vedant</p>

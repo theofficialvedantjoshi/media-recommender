@@ -53,7 +53,8 @@ def recommend():
                 ,"https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg"
                 ,"https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_SX300.jpg"
         ]
-        return render_template('main.html',images=images_temp)
+        names = ['Breaking Bad','The Matrix','The Dark Knight','The Office']
+        return render_template('main.html',images=images_temp,names=names)
 @app.route('/info/<name>')
 def info(name):
     try:
