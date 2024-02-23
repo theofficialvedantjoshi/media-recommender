@@ -6,7 +6,7 @@ import time
 import imdb 
 from dotenv import load_dotenv
 import os
-
+import image
 
 
 load_dotenv()
@@ -38,7 +38,13 @@ def recommend():
                 data = imdb.get_info(i)
                 images.append(img_url+data['poster_path'])
             except:
-                images.append("https://m.media-amazon.com/images/M/MV5BYmQ4YWMxYjUtNjZmYi00MDQ1LWFjMjMtNjA5ZDdiYjdiODU5XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_SX300.jpg")
+                try:
+                    url = "http://www.omdbapi.com/?apikey={}&t={}".format(omdb_key,i)
+                    response = requests.get(url)
+                    data = response.json()
+                    images.append(data['Poster'])
+                except:
+                    images.append(image.get_image(i))
             names.append(i)
         return render_template('recs.html', user_input=user_input,images=images,names=names)
     else:
