@@ -32,6 +32,8 @@ def recommend():
         scores = []
         for i in titles:
             scores.append(fuzz.ratio(user_input,i))
+        if max(scores)<50:
+            return render_template('error.html')
         user_input = titles[scores.index(max(scores))]
         try:
             recs = nf.recommend(user_input)
