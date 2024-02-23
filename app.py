@@ -7,6 +7,7 @@ import imdb
 from dotenv import load_dotenv
 import os
 import image
+from thefuzz import fuzz
 
 
 load_dotenv()
@@ -25,6 +26,13 @@ def recommend():
         user_input = request.form['user_input']
         # images= ['https://image.tmdb.org/t/p/original/wigZBAmNrIhxp2FNGOROUAeHvdh.jpg']*10
         # names =['Black Mirror','You','The Witcher','The Crown','The Queen\'s Gambit','Black Mirror','You','The Witcher','The Crown','The Queen\'s Gambit']
+        #match to closest title
+        df = pd.read_csv('all_titles.csv')
+        titles = df.title.to_list()
+        scores = []
+        for i in titles:
+            scores.append(fuzz.ratio(user_input,i))
+        user_input = titles[scores.index(max(scores))]
         try:
             recs = nf.recommend(user_input)
         except:
