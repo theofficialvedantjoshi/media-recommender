@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 import os
 import image
 from thefuzz import fuzz
-
+import webbrowser
 
 load_dotenv()
 omdb_key = os.getenv('OMDB_KEY')
@@ -87,5 +87,6 @@ def info(name):
     return render_template('info.html',n=name,y=year,r=rated,g=genre,w=writer,a=actor,p=plot,ra=rating,po=poster,link=link)
 
 if __name__ == '__main__':
+    webbrowser.open('http://localhost:8080')
     app.run(host="localhost",port=8080,debug=True)
 

@@ -18,6 +18,13 @@ h1{
     margin-top: 2rem;
 
 }
+#media-name{
+    font-family: 'Sora', sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin-top: 2rem;
+}
 .image-container1{
     display: flex;
     justify-content: space-evenly;

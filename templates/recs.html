@@ -12,6 +12,7 @@
 <body>
     {% if user_input %}
     <h1>YOUR RECOMMENDATIONS</h1>
+    <p id="media-name">showing results for {{user_input}}</p>
         <div class="image-container1">
 
         {% for i in range(5)%}
